@@ -23,7 +23,7 @@ public class DragAndShoot : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        Vector3 initForce = (Input.mousePosition - mousePressDownPos);
+        Vector3 initForce = (Input.mousePosition - mousePressDownPos) ;
         Vector3 forceV = (new Vector3(initForce.x,initForce.y,initForce.y)) * forceMultiplier;
 
         if (!isShoot) Projection.Instance.UpdateTrajectory(forceV, rb, transform.position); 
@@ -33,7 +33,7 @@ public class DragAndShoot : MonoBehaviour
     {
         Projection.Instance.HideTrajectory();
         mouseReleasePos= Input.mousePosition;
-        Shoot(mousePressDownPos - mouseReleasePos);
+        Shoot((mousePressDownPos - mouseReleasePos)) ;
     }
     
     void Shoot(Vector3 force)
