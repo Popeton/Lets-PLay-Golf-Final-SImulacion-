@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 616972682}
   - component: {fileID: 616972681}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MatrixManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fb684891b05ad4da0939f40c4432fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetaActual: jupiter
 --- !u!4 &616972682
 Transform:
   m_ObjectHideFlags: 0
@@ -1347,6 +1348,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5815993812663698082, guid: 5b09d2307ad8bd54aad9563f24e2d3d9, type: 3}
+      propertyPath: matrix
+      value: 
+      objectReference: {fileID: 616972680}
     - target: {fileID: 5815993812663698085, guid: 5b09d2307ad8bd54aad9563f24e2d3d9, type: 3}
       propertyPath: m_RootOrder
       value: 5

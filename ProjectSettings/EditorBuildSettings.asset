@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Tierra.unity
+    guid: 051f4e5d61919d74cb1f9cf160b3b412
+  - enabled: 1
+    path: Assets/Scenes/Marte.unity
+    guid: 776cc8f6410d9d44abeceac9098d6f1f
+  - enabled: 1
+    path: Assets/Scenes/Jupiter.unity
+    guid: 2721e4c088b397e44b3940f13fc84aff
   m_configObjects: {}
