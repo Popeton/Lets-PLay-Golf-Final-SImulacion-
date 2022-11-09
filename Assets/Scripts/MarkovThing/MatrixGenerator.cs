@@ -11,17 +11,19 @@ public class MatrixGenerator : MonoBehaviour
     private float[,] matrix3 = new float[3, 3];
     private float[,] matrixEscogida = new float[3,3];
 
-    private  float t,a,b;
+    private  float t,a;
     private  int id;
 
     [SerializeField] private string planetaActual;
-  
-    
-    void Start()
-    {
+    [SerializeField] TransitionSystem transition;
+    [SerializeField] private int currentPlanet;
 
-        
+
+    private void Start()
+    {
+        EnterTheHole();
     }
+
     public void EnterTheHole()
     {
         ChooseMatrix();
@@ -115,22 +117,25 @@ public class MatrixGenerator : MonoBehaviour
         
         print(t);
         print("a:" + a);
-        print("b:" + b);
+      
 
         if (t <= matrixEscogida[i, 0])
         {
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(0);
+            transition.Transition(currentPlanet,1);
             print("primero");
         }
         if (t > matrixEscogida[i, 0] && t <= a)
         {
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
+            transition.Transition(currentPlanet, 2);
             print("segundo");
         }
 
         if (t > a && t < 1)
         {
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
+            transition.Transition(currentPlanet, 3);
             print("tercero");
         }
     }
