@@ -119,18 +119,18 @@ public class MatrixGenerator : MonoBehaviour
 
         if (t <= matrixEscogida[i, 0])
         {
-            SceneManager.LoadScene(i);
+            SceneManager.LoadScene(1);
             print("primero");
         }
         if (t > matrixEscogida[i, 0] && t <= a)
         {
-            SceneManager.LoadScene(i);
+            SceneManager.LoadScene(1);
             print("segundo");
         }
 
         if (t > a && t < 1)
         {
-            SceneManager.LoadScene(i);
+            SceneManager.LoadScene(2);
             print("tercero");
         }
     }
