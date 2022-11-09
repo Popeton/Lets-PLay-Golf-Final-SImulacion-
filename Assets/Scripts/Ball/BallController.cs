@@ -107,7 +107,7 @@ public class BallController : MonoBehaviour
     {
         isAiming = false;
 
-        Vector3 horizontalWorldPos = new Vector3(vector.magnitude, transform.position.y, vector.magnitude);
+        Vector3 horizontalWorldPos = new Vector3(vector.x, transform.position.y, vector.z);
 
         Vector3 direction = (horizontalWorldPos - transform.position).normalized;
 
