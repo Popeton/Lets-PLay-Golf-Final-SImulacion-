@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jupiter.unity
     guid: 2721e4c088b397e44b3940f13fc84aff
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: da79cadbae4f5824a85d45b688b78bad
   m_configObjects: {}

@@ -12,21 +12,32 @@ public class MatrixGenerator : MonoBehaviour
     private float[,] matrixEscogida = new float[3,3];
 
     private  float t,a;
-    private  int id;
+    private  int id,count;
+    
 
     [SerializeField] private string planetaActual;
-    [SerializeField] TransitionSystem transition;
     [SerializeField] private int currentPlanet;
-
 
     private void Start()
     {
-        EnterTheHole();
+        count = DataBetweenScenes.instance.count;
+        if(count != 1)
+        {
+            ChooseMatrix();
+            count++;
+            print(count);
+            DataBetweenScenes.instance.count = count;
+        }
     }
 
+
+    public void hole()
+    {
+        EnterTheHole();
+    }
     public void EnterTheHole()
     {
-        ChooseMatrix();
+        
         ActualPlanet(planetaActual);
     }
     private void ChooseMatrix()
@@ -79,39 +90,57 @@ public class MatrixGenerator : MonoBehaviour
         if (id == 1)
         {
             matrixEscogida = matrix1;
+            DataBetweenScenes.instance.SetMatrix(matrix1);
         }
         if (id == 2)
         {
             matrixEscogida = matrix2;
+            DataBetweenScenes.instance.SetMatrix(matrix2);
+
         }
         if (id == 3)
         {
             matrixEscogida = matrix3;
+            DataBetweenScenes.instance.SetMatrix(matrix3);
+
         }
     }
     private void ActualPlanet(string planeta)
     {
 
-        if (planeta == "tierra")
+        
+
+        if (planeta == "tierra" && DataBetweenScenes.instance.earth < 3)
         {
             ChangeScenes(0);
+            DataBetweenScenes.instance.earth++;
+            DataBetweenScenes.instance.checkTierra = true;
         }
-
-        if (planeta == "marte")
+        
+        else if (planeta == "marte" && DataBetweenScenes.instance.mars < 3)
 
         {
             ChangeScenes(1);
-        }
+            DataBetweenScenes.instance.mars++;
+            DataBetweenScenes.instance.checkMarte = true;
 
-        if (planeta == "jupiter")
+        }
+        else if (planeta == "jupiter" && DataBetweenScenes.instance.jupiter < 3)
         {
             ChangeScenes(2);
+            DataBetweenScenes.instance.jupiter++;
+            DataBetweenScenes.instance.cheekJupiter = true;
+
+        }
+        else
+        {
+            SceneManager.LoadScene(3);
         }
     }
-    
-
+   
     private void ChangeScenes(int i)
     {
+        matrixEscogida = DataBetweenScenes.instance.GetMatrix();
         t = Random.Range(0, 1f);
         a = matrixEscogida[i, 0] + matrixEscogida[i, 1];
         
@@ -121,21 +150,24 @@ public class MatrixGenerator : MonoBehaviour
 
         if (t <= matrixEscogida[i, 0])
         {
-            //SceneManager.LoadScene(0);
-            transition.Transition(currentPlanet,1);
+            SceneManager.LoadScene(0);
+            DataBetweenScenes.instance.SetNextPlanet(1);
+            DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
             print("primero");
         }
         if (t > matrixEscogida[i, 0] && t <= a)
         {
-            //SceneManager.LoadScene(1);
-            transition.Transition(currentPlanet, 2);
+            SceneManager.LoadScene(1);
+            DataBetweenScenes.instance.SetNextPlanet(2);
+            DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
             print("segundo");
         }
 
         if (t > a && t < 1)
         {
-            //SceneManager.LoadScene(2);
-            transition.Transition(currentPlanet, 3);
+            SceneManager.LoadScene(2);
+            DataBetweenScenes.instance.SetNextPlanet(3);
+            DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
             print("tercero");
         }
     }
