@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6813686757772104725}
   - component: {fileID: 6813686757772104724}
   - component: {fileID: 5635958937223528654}
+  - component: {fileID: 734657415}
   m_Layer: 0
   m_Name: Ball
   m_TagString: BallPLayer
@@ -132,8 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6813686757772104812}
   stopVelocity: 1.5
-  shotPower: 50
+  shotPower: 200
   lineRenderer: {fileID: 1639247919}
+  animator: {fileID: 734657415}
   lasPosition: {x: 0, y: 0, z: 0}
 --- !u!96 &6813686757772104724
 TrailRenderer:
@@ -256,6 +258,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &734657415
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813686757772104813}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57708e774c51cd1428c1f24eb3bea322, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6813686757783017192
 GameObject:
   m_ObjectHideFlags: 0

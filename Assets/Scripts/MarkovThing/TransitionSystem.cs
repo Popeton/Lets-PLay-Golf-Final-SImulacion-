@@ -22,6 +22,11 @@ public class TransitionSystem : MonoBehaviour
 
         m_trans3.text = DataBetweenScenes.instance.GetCurrentPlanet(2).ToString();
         m_trans33.text = DataBetweenScenes.instance.GetNextPlanet(2).ToString();
+
+        m_prob1.text = DataBetweenScenes.instance.prob[0].ToString();
+        m_prob2.text = DataBetweenScenes.instance.prob[1].ToString();
+        m_prob3.text = DataBetweenScenes.instance.prob[2].ToString();
+
     }
 
 }

@@ -31,10 +31,7 @@ public class MatrixGenerator : MonoBehaviour
     }
 
 
-    public void hole()
-    {
-        EnterTheHole();
-    }
+   
     public void EnterTheHole()
     {
         
@@ -85,7 +82,7 @@ public class MatrixGenerator : MonoBehaviour
         matrix3[2, 2] = 0.4f;
 
         id = Random.Range(1, 4);
-        print(id);
+        print("matrix" + id);
 
         if (id == 1)
         {
@@ -110,29 +107,30 @@ public class MatrixGenerator : MonoBehaviour
 
         
 
-        if (planeta == "tierra" && DataBetweenScenes.instance.earth < 3)
+        if (planeta == "tierra" )
         {
             ChangeScenes(0);
             DataBetweenScenes.instance.earth++;
             DataBetweenScenes.instance.checkTierra = true;
         }
         
-        else if (planeta == "marte" && DataBetweenScenes.instance.mars < 3)
+        else if (planeta == "marte" )
 
         {
             ChangeScenes(1);
-            DataBetweenScenes.instance.mars++;
+            DataBetweenScenes.instance.earth++;
             DataBetweenScenes.instance.checkMarte = true;
 
         }
-        else if (planeta == "jupiter" && DataBetweenScenes.instance.jupiter < 3)
+        else if (planeta == "jupiter" )
         {
             ChangeScenes(2);
-            DataBetweenScenes.instance.jupiter++;
+            DataBetweenScenes.instance.earth++;
             DataBetweenScenes.instance.cheekJupiter = true;
 
         }
-        else
+        
+        if (DataBetweenScenes.instance.earth>3)
         {
             SceneManager.LoadScene(3);
         }
@@ -144,8 +142,7 @@ public class MatrixGenerator : MonoBehaviour
         t = Random.Range(0, 1f);
         a = matrixEscogida[i, 0] + matrixEscogida[i, 1];
         
-        print(t);
-        print("a:" + a);
+       
       
 
         if (t <= matrixEscogida[i, 0])
@@ -153,6 +150,8 @@ public class MatrixGenerator : MonoBehaviour
             SceneManager.LoadScene(0);
             DataBetweenScenes.instance.SetNextPlanet(1);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
+            DataBetweenScenes.instance.prob.Add (matrixEscogida[i, 0]);
+            print(matrixEscogida[i, 0]);
             print("primero");
         }
         if (t > matrixEscogida[i, 0] && t <= a)
@@ -160,6 +159,9 @@ public class MatrixGenerator : MonoBehaviour
             SceneManager.LoadScene(1);
             DataBetweenScenes.instance.SetNextPlanet(2);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
+            DataBetweenScenes.instance.prob.Add(matrixEscogida[i, 1]);
+            print(matrixEscogida[i, 1]);
+
             print("segundo");
         }
 
@@ -168,6 +170,8 @@ public class MatrixGenerator : MonoBehaviour
             SceneManager.LoadScene(2);
             DataBetweenScenes.instance.SetNextPlanet(3);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
+            DataBetweenScenes.instance.prob.Add(matrixEscogida[i, 2]);
+            print(matrixEscogida[i, 2]);
             print("tercero");
         }
     }

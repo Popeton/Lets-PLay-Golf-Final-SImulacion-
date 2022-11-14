@@ -7,24 +7,29 @@ public class DataBetweenScenes : MonoBehaviour
     public static DataBetweenScenes instance;
 
     #region Transition Data 
-     private List<int> nextPlanet = new List<int>();
-     private List<int> CurrentPlanet = new List<int>();
-     private float[,] matrixEscogida = new float[3, 3];
-     public int count=0,earth,mars,jupiter;
-     public bool checkTierra, checkMarte, cheekJupiter;
+
+    private List<int> nextPlanet = new List<int>();
+    private List<int> CurrentPlanet = new List<int>();
+    public List<float> prob = new List<float>();
+
+    private float[,] matrixEscogida = new float[3, 3];
+
+
+    public int count = 0, earth, points, jupiter;
+    public bool checkTierra, checkMarte, cheekJupiter;
     #endregion
 
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
-            if(instance != this)
+            if (instance != this)
             {
                 Destroy(gameObject);
             }
@@ -39,7 +44,7 @@ public class DataBetweenScenes : MonoBehaviour
     {
         return nextPlanet[index];
     }
-  
+
     public void SetCurrentPlanet(int j)
     {
         CurrentPlanet.Add(j);
@@ -49,14 +54,18 @@ public class DataBetweenScenes : MonoBehaviour
         return CurrentPlanet[index];
     }
 
-    
-    public void SetMatrix( float[,] newMatrix)
+
+    public void SetMatrix(float[,] newMatrix)
     {
-        matrixEscogida=newMatrix;
+        matrixEscogida = newMatrix;
     }
 
     public float[,] GetMatrix()
     {
         return matrixEscogida;
     }
+
+    
+
+   
 }
