@@ -10,7 +10,6 @@ public class HoleSystem : MonoBehaviour
         if (other.gameObject.CompareTag("BallPLayer"))
         {
             other.gameObject.GetComponent<BallController>().Stop();
-            other.gameObject.GetComponent<BallController>().EnterHole();
             matrix.GetComponent<MatrixGenerator>().EnterTheHole();
             Debug.Log("Hoyo");
         }

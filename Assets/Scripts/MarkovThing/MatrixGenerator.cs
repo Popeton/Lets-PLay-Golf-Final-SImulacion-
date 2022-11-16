@@ -147,7 +147,7 @@ public class MatrixGenerator : MonoBehaviour
 
         if (t <= matrixEscogida[i, 0])
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
             DataBetweenScenes.instance.SetNextPlanet(1);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
             DataBetweenScenes.instance.prob.Add (matrixEscogida[i, 0]);
@@ -156,7 +156,7 @@ public class MatrixGenerator : MonoBehaviour
         }
         if (t > matrixEscogida[i, 0] && t <= a)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
             DataBetweenScenes.instance.SetNextPlanet(2);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
             DataBetweenScenes.instance.prob.Add(matrixEscogida[i, 1]);
@@ -167,7 +167,7 @@ public class MatrixGenerator : MonoBehaviour
 
         if (t > a && t < 1)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             DataBetweenScenes.instance.SetNextPlanet(3);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
             DataBetweenScenes.instance.prob.Add(matrixEscogida[i, 2]);
