@@ -21,4 +21,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(actual);
     }
+
+    public void ClearAll()
+    {
+        DataBetweenScenes.instance.ClearData();
+    }
 }

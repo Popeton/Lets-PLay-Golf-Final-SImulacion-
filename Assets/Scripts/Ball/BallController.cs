@@ -14,6 +14,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private float shotPower;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource audioSource;
+    
     public Vector3 lasPosition;
 
     bool isAiming;  
@@ -103,6 +105,7 @@ public class BallController : MonoBehaviour
 
     private void Shoot(Vector3 vector)
     {
+        audioSource.Play();
         lasPosition = transform.position;
         isAiming = false;
         lineRenderer.enabled = false;
