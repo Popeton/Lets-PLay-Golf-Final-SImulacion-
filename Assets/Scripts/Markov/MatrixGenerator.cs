@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class MatrixGenerator : MonoBehaviour
 
     [SerializeField] private string planetaActual;
     [SerializeField] private int currentPlanet;
+    [SerializeField] private GameObject[] loadmessage;
 
     private void Start()
     {
@@ -147,6 +149,7 @@ public class MatrixGenerator : MonoBehaviour
 
         if (t <= matrixEscogida[i, 0])
         {
+            //LoadingScene(1);
             SceneManager.LoadScene(1);
             DataBetweenScenes.instance.SetNextPlanet(1);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
@@ -156,6 +159,7 @@ public class MatrixGenerator : MonoBehaviour
         }
         if (t > matrixEscogida[i, 0] && t <= a)
         {
+            //LoadingScene(2);
             SceneManager.LoadScene(2);
             DataBetweenScenes.instance.SetNextPlanet(2);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
@@ -167,6 +171,7 @@ public class MatrixGenerator : MonoBehaviour
 
         if (t > a && t < 1)
         {
+            //LoadingScene(3);
             SceneManager.LoadScene(3);
             DataBetweenScenes.instance.SetNextPlanet(3);
             DataBetweenScenes.instance.SetCurrentPlanet(currentPlanet);
@@ -176,6 +181,12 @@ public class MatrixGenerator : MonoBehaviour
         }
     }
 
+
+    public void LoadingScene(int index)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(index);
+        loadmessage[index - 1].gameObject.SetActive(true);
+    }
 
    
 }
